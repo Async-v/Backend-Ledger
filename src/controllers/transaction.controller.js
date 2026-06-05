@@ -127,7 +127,7 @@ async function createTransaction(req, res) {
             type: "DEBIT"
         }], { session })
 
-        await(()=> new Promise(resolve => setTimeout(resolve, 15 * 1000)))() // Simulating some delay in transaction processing
+        await new Promise((resolve) => setTimeout(resolve, (15 * 1000))) // Simulating some delay in processing the transaction
 
         const creditLedgerEntry = await ledgerModel.create([{
             account: toAccount,
